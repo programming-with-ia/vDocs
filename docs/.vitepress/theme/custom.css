@@ -1,0 +1,79 @@
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(
+    to right top,
+    var(--vp-button-brand-bg),
+    var(--vp-button-brand-active-bg)
+  );
+
+  --vp-home-hero-image-background-image: radial-gradient(
+    var(--vp-button-brand-bg) 50%,
+    var(--vp-button-brand-hover-bg) 50%
+  );
+  --vp-home-hero-image-filter: blur(100px) opacity(0.4);
+}
+
+.c-heading {
+  background: var(--vp-home-hero-name-background);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: var(--vp-home-hero-name-color);
+}
+
+img[src*="shields.io"] {
+  display: inline;
+  margin-inline: 0.2rem;
+}
+
+.pg-without-img h1 > span.text {
+  max-width: unset !important;
+}
+
+/* Hero Image */
+img[alt$="hero-image"] {
+  width: 150px;
+}
+
+@media (min-width: 640px) {
+  img[alt$="hero-image"] {
+    width: 200px;
+  }
+}
+
+@media (min-width: 1024px) {
+  img[alt$="hero-image"] {
+    width: 300px;
+  }
+}
+
+/* ScrollBar */
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background: transparent;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  /* background: transparent; */
+  background: var(--vp-c-divider);
+  border-radius: 4px;
+  transition: background 1s ease;
+}
+
+*:hover::-webkit-scrollbar-thumb {
+  background: var(--vp-c-divider);
+  opacity: 0.5;
+}
+
+*:hover::-webkit-scrollbar-thumb:hover {
+  background: var(--vp-button-brand-hover-bg);
+}
+
+*:hover::-webkit-scrollbar-thumb:active {
+  background: var(--vp-button-brand-active-bg);
+}
