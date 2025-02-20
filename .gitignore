@@ -1,0 +1,17 @@
+node_modules/
+build/
+coverage/
+package/
+reports/
+docs/.vitepress/cache/
+yarn.lock
+temp
+docs/.vitepress/dist
+docs/.vitepress/temp
+docs/.vitepress/.temp
+docs/.vitepress/.cache
+generated/
+docs/hooks
+
+tempCodeRunnerFile.*
+help.txt

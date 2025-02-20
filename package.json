@@ -1,0 +1,32 @@
+{
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "dev": "pnpm docs:dev",
+    "docs:build": "pnpm gen:docs && vitepress build docs",
+    "build": "pnpm docs:build",
+    "docs:preview": "vitepress preview docs",
+    "preview": "pnpm docs:preview",
+    "gen:docs": "rimraf ./generated && pnpm typedoc && tsx scripts/generate-doc.ts"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/lodash.debounce": "^4.0.9",
+    "@types/react": "18.2.73",
+    "@types/react-dom": "18.2.23",
+    "fs-extra": "^11.3.0",
+    "react": "^18.3.1",
+    "rimraf": "^6.0.1",
+    "tsx": "^4.19.2",
+    "typedoc": "^0.25.9",
+    "typedoc-plugin-markdown": "^3.17.1",
+    "typedoc-plugin-mdn-links": "^3.1.17",
+    "typedoc-plugin-missing-exports": "^2.2.0",
+    "typescript": "5.4.3",
+    "vitepress": "^1.6.3",
+    "vitepress-plugin-group-icons": "^1.3.6"
+  },
+  "dependencies": {
+    "lodash.debounce": "^4.0.8"
+  }
+}
