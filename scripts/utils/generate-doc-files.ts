@@ -17,6 +17,20 @@ import path from "path";
 import fs from "fs-extra";
 import { camelToKebabCase, getLine, readFile, withCache } from "./utils";
 import { siteconfig } from "../../docs/.vitepress/siteconfig";
+import { generateCodeGroups } from "./vitepress-templates";
+
+function getInstallationCommandsGroup(hookName: string) {
+  const scafloCommand = ` scaflo@latest https://raw.githubusercontent.com/programming-with-ia/vDocs/scaflos/hooks/${hookName}.json -e %src%/hooks`;
+
+  const commands = {
+    pnpm: "pnpm dlx" + scafloCommand,
+    npm: "npx" + scafloCommand,
+    bun: "bunx" + scafloCommand,
+    yarn: "yarn dlx" + scafloCommand,
+  };
+
+  return generateCodeGroups(commands);
+}
 
 function getTypedocTypesFiles() {
   console.log("getTypedocTypesFiles");
@@ -84,6 +98,8 @@ export function generateDocFiles(filePath: string, hookName: string) {
     })
     .filter(Boolean);
 
+  const installationCommands = getInstallationCommandsGroup(hookName);
+
   const desc = getLine(hookDoc, 4) || "";
   // Template
   const data = `---
@@ -119,6 +135,10 @@ ${desc}
 \`\`\`tsx showLineNumbers {${hookHighlightIndexes.join(",")}}
 ${demo.trim()}
 \`\`\`
+
+## Installation
+
+${installationCommands}
 
 ## API
 
