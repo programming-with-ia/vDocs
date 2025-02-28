@@ -73,9 +73,9 @@ const getFullDependencyTreeWithFiles = withCache(async function (
 ): Promise<HookFile[]> {
   const hookPath = path.join(hooksFolder, `${hookName}.ts`);
   const fileContent =
-    "https://raw.githubusercontent.com/programming-with-ia/vDocs/scaflos/hooks/" +
+    "https://raw.githubusercontent.com/programming-with-ia/vDocs/master/hooks/" +
     hookName +
-    ".json";
+    ".ts";
   const { internal: internalDeps, external: externalDeps } =
     getHookDependencies(hookPath);
 
